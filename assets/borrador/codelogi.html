@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIRMEZA - Portal de Clientes y Contratistas</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#F59E0B',
+              amber: '#D97706',
+              darkamber: '#B45309',
+              navy: '#0B111E',
+              navylight: '#151D2E',
+              deepblue: '#070C15',
+            }
+          },
+          boxShadow: {
+            'glow-gold': '0 0 25px -4px rgba(245, 158, 11, 0.45)',
+            'card-elevated': '0 25px 50px -12px rgba(7, 12, 21, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-decorations">
+    /* Subtle geometric angle accents identical to reference design */
+    .hero-cut-border {
+      position: relative;
+    }
+    .hero-cut-border::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 24px solid #0B111E;
+      border-left: 55px solid transparent;
+      pointer-events: none;
+    }
+    
+    /* Background backdrop image blur & blend setup */
+    .bg-construction-hero {
+      background-image: linear-gradient(180deg, rgba(11, 17, 30, 0.82) 0%, rgba(11, 17, 30, 0.60) 40%, rgba(11, 17, 30, 0.88) 85%, #0B111E 100%),
+                        url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtnCgKiMSOnp3S_nwo_GkZuTj0GTO1PiGi9gXdFYPNqbN89vocl0emBFCXZNoJilb8W0WI5MEXlDU1pGLQwT1-ciJ9ywcUMyU3v0zPE9NL5VhxSAzixbnt0CYZ1Vz0oH1kbHqaTVtTyx5IWFqQQWD1AqSOg-8btR3YRUx6PFQRPRCW2LeKgtX8ZXUX-1an9wevcvOst7da-Us4MrWarm45InH0YNixfcbjan-nkxgm8FyhMJ1ygcwWtiTS0sYg1NYhuA');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .badge-icon-border {
+      background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, rgba(245,158,11,0.02) 70%);
+      border: 1.5px solid rgba(245, 158, 11, 0.6);
+    }
+  </style>
+</head>
+<body class="h-full bg-brand-navy text-slate-100 font-sans flex flex-col justify-between selection:bg-brand-gold selection:text-brand-navy antialiased">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm z-50 sticky top-0 transition-all">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo Container -->
+<a aria-label="FIRMEZA Inicio" class="flex items-center gap-3.5 group focus:outline-none" href="#">
+<!-- Stylized "F" Monogram Logo -->
+<div class="relative w-11 h-11 flex items-center justify-center">
+<svg class="w-full h-full drop-shadow-sm transition-transform group-hover:scale-105 duration-200" viewbox="0 0 48 48">
+<!-- Curved stylized construction wings / F shape -->
+<path d="M8 8 C16 4, 34 6, 42 15 C36 18, 26 17, 18 20 C18 20, 24 21, 32 23 C22 28, 15 36, 12 44 C11 38, 10 24, 8 8 Z" fill="#F59E0B"></path>
+<path d="M12 18 C19 16, 28 17, 34 14 C30 20, 20 23, 14 26 C13 22, 12 19, 12 18 Z" fill="#0B111E"></path>
+<path d="M14 26 C18 24, 25 24, 30 23 C20 30, 15 38, 13 42 C12 36, 13 30, 14 26 Z" fill="#0B111E"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-black tracking-tight text-slate-900 leading-none flex items-center gap-1">
+            FIRMEZA
+          </span>
+<span class="text-[9px] font-extrabold tracking-widest text-slate-500 uppercase mt-1">
+            Tu Socio en Construcción
+          </span>
+</div>
+</a>
+<!-- Center Operational Status Indicator -->
+<div class="hidden md:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+</span>
+<span>Servidores Operativos • En Línea</span>
+</div>
+<!-- Navigation Actions -->
+<nav class="flex items-center gap-4">
+<a class="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-brand-amber transition-colors" href="#">
+<i class="fa-solid fa-arrow-left text-xs"></i>
+<span>Volver al Sitio Web</span>
+</a>
+<div class="h-6 w-px bg-slate-300 hidden sm:block"></div>
+<a class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold bg-slate-900 text-amber-400 border border-slate-700 hover:bg-slate-800 px-4 py-2 rounded-full transition-all shadow-sm" href="#">
+<i class="fa-solid fa-headset text-amber-400"></i>
+<span>Soporte 24/7</span>
+</a>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent (Hero & Login Portal) -->
+<main class="flex-grow flex items-center justify-center bg-construction-hero relative px-4 py-10 sm:py-16">
+<!-- Angled Top Edge Accent (Visual mirror from reference) -->
+<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-80"></div>
+<div class="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+<!-- Left Column: Contextual Value Proposition and Reference Style Copy -->
+<div class="lg:col-span-6 space-y-6 text-left hidden lg:block pr-6">
+<!-- Header Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-brand-gold/40 backdrop-blur-md shadow-lg">
+<i class="fa-solid fa-shield-halved text-brand-gold text-xs"></i>
+<span class="text-xs uppercase font-extrabold tracking-wider text-amber-300">Acceso Seguro Verificado JWT</span>
+</div>
+<!-- Hero Title referencing EXACT image typography & palette -->
+<h1 class="text-4xl xl:text-5xl font-black text-white leading-tight uppercase tracking-tight">
+<span class="text-brand-gold block">FIRMEZA:</span>
+          Tu socio confiable en materiales y vehículos de construcción.
+        </h1>
+<p class="text-slate-300 text-base leading-relaxed font-normal">
+          Optimizamos tus proyectos de gran escala con nuestra plataforma líder en gestión de despachos, cubicación de áridos, alquiler de maquinaria pesada y facturación electrónica centralizada.
+        </p>
+<!-- Feature Points Quick List -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-3 text-slate-200 text-sm font-medium">
+<span class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-xs border border-brand-gold/40">✓</span>
+            Monitoreo en tiempo real de despacho con telemetría GPS
+          </div>
+<div class="flex items-center gap-3 text-slate-200 text-sm font-medium">
+<span class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-xs border border-brand-gold/40">✓</span>
+            Descarga instantánea de informes de pesaje y remisiones en PDF/Excel
+          </div>
+<div class="flex items-center gap-3 text-slate-200 text-sm font-medium">
+<span class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-xs border border-brand-gold/40">✓</span>
+            Líneas de crédito empresarial y cotizaciones inmediatas
+          </div>
+</div>
+<!-- Quick Call to Action buttons mirroring the hero style -->
+<div class="pt-4 flex items-center gap-4">
+<div class="flex items-center gap-3 text-xs font-semibold text-slate-400 bg-brand-navy/60 px-4 py-2.5 rounded-xl border border-slate-700/60 backdrop-blur-sm">
+<i class="fa-solid fa-lock text-brand-gold text-sm"></i>
+<span>Cifrado TLS 1.3 con arquitectura Clean Architecture</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Login Card Container -->
+<div class="lg:col-span-6 w-full max-w-lg mx-auto">
+<div class="bg-white rounded-3xl shadow-card-elevated border border-white/20 overflow-hidden transform transition-all duration-300">
+<!-- Card Top Bar Indicator -->
+<div class="h-2 w-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600"></div>
+<div class="p-6 sm:p-8">
+<!-- Card Header -->
+<div class="text-left mb-6">
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-extrabold uppercase tracking-wider">
+<i class="fa-solid fa-hard-hat text-brand-amber"></i> Portal Oficial
+                </span>
+<span class="text-xs text-slate-400 font-medium">v2.4.0</span>
+</div>
+<h2 class="text-2xl font-black text-slate-900 tracking-tight">Portal de Clientes y Contratistas</h2>
+<p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Ingresa con tus credenciales maestras para gestionar despacho de materiales, cubicación y alquiler de maquinaria.
+              </p>
+</div>
+<!-- Role Selector Tabs -->
+<div class="grid grid-cols-2 p-1 bg-slate-100 rounded-xl mb-6 border border-slate-200/80">
+<button aria-pressed="true" class="py-2.5 px-3 rounded-lg text-xs font-bold text-slate-900 bg-white shadow-sm flex items-center justify-center gap-2 border border-slate-200/60 transition-all focus:outline-none" type="button">
+<i class="fa-solid fa-building text-brand-amber"></i>
+<span>Empresa / Contratista</span>
+</button>
+<button aria-pressed="false" class="py-2.5 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2 transition-all focus:outline-none" type="button">
+<i class="fa-solid fa-truck-moving text-slate-400"></i>
+<span>Conductor / Flota</span>
+</button>
+</div>
+<!-- Login Form -->
+<form action="#" class="space-y-4" method="POST" onsubmit="event.preventDefault();">
+<!-- Email Input Field -->
+<div class="space-y-1.5">
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700" for="corporate-email">
+                  Correo Electrónico Corporativo
+                </label>
+<div class="relative rounded-xl shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<i class="fa-regular fa-envelope text-sm"></i>
+</div>
+<input class="block w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all font-medium" id="corporate-email" name="email" placeholder="nombre@constructora.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input Field -->
+<div class="space-y-1.5">
+<label class="block text-xs font-bold uppercase tracking-wider text-slate-700" for="corporate-password">
+                  Contraseña de Acceso
+                </label>
+<div class="relative rounded-xl shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-lock text-sm"></i>
+</div>
+<input class="block w-full pl-10 pr-11 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all font-medium" id="corporate-password" name="password" placeholder="••••••••••••" required="" type="password"/>
+<button aria-label="Mostrar u ocultar contraseña" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none" type="button">
+<i class="fa-regular fa-eye text-sm"></i>
+</button>
+</div>
+</div>
+<!-- Remember Me & Forgot Password -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input class="w-4 h-4 text-amber-500 border-slate-300 rounded focus:ring-amber-400 transition cursor-pointer" name="remember" type="checkbox"/>
+<span class="text-xs font-medium text-slate-600">Recordar en este equipo</span>
+</label>
+<a class="text-xs font-bold text-amber-600 hover:text-amber-700 hover:underline" href="#">
+                  ¿Olvidaste tu contraseña?
+                </a>
+</div>
+<!-- Submit CTA Button (Identical Amber Pill with Arrow from Reference) -->
+<div class="pt-2">
+<button class="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full text-slate-950 font-black text-sm tracking-wider uppercase bg-brand-gold hover:bg-amber-400 active:bg-amber-500 shadow-glow-gold transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 cursor-pointer" type="submit">
+<span>Ingresar al Portal</span>
+<i class="fa-solid fa-arrow-right text-xs"></i>
+</button>
+</div>
+</form>
+<!-- SSO / Federated Login Separator -->
+<div class="relative my-6 text-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-white px-3 font-bold text-slate-400 tracking-wider">O ingresa con autenticación corporativa</span>
+</div>
+</div>
+<!-- Single Sign-On Corporate Providers -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Microsoft 365 -->
+<button class="flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs shadow-sm hover:border-slate-300 transition-all focus:outline-none" type="button">
+<svg class="w-4 h-4" viewbox="0 0 23 23">
+<path d="M1 1h10v10H1z" fill="#f35325"></path>
+<path d="M12 1h10v10H12z" fill="#81bc06"></path>
+<path d="M1 12h10v10H1z" fill="#05a6f0"></path>
+<path d="M12 12h10v10H12z" fill="#ffba08"></path>
+</svg>
+<span>Microsoft 365</span>
+</button>
+<!-- Google Workspace -->
+<button class="flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs shadow-sm hover:border-slate-300 transition-all focus:outline-none" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27a7.11 7.11 0 0 1 0-4.54V6.58H1.25a11.96 11.96 0 0 0 0 10.84l4.03-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Workspace</span>
+</button>
+</div>
+<!-- Card Bottom Account Registration Note -->
+<div class="mt-6 pt-5 border-t border-slate-100 text-center">
+<p class="text-xs text-slate-500 font-medium">
+                ¿Aún no tienes una cuenta corporativa de contratista?
+              </p>
+<a class="mt-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-brand-amber hover:text-amber-700 hover:underline" href="#">
+<i class="fa-solid fa-file-contract"></i>
+<span>Solicitar cotización o apertura de línea comercial</span>
+</a>
+</div>
+</div>
+<!-- Bottom Security Strip -->
+<div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+<span class="flex items-center gap-1.5">
+<i class="fa-solid fa-fingerprint text-brand-amber"></i> Token de sesión único
+            </span>
+<span class="flex items-center gap-1.5">
+<i class="fa-solid fa-lock text-emerald-600"></i> SSL 256-bit Certificado
+            </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: TrustBenefitsSection (Directly replicated from bottom banner in Image 6) -->
+<section class="bg-brand-navy border-t border-slate-800 relative z-20 overflow-hidden">
+<!-- Stylized "BENEFICIOS FIRMEZA" Centered Header Tag from Reference -->
+<div class="flex justify-center -mt-3.5 mb-2">
+<div class="bg-slate-900 border border-brand-gold/50 text-slate-200 uppercase font-black text-xs tracking-widest px-6 py-1.5 rounded-full shadow-md flex items-center gap-2">
+<i class="fa-solid fa-award text-brand-gold"></i>
+<span>Beneficios Firmeza</span>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+<!-- Benefit Item 1: Seguridad Avanzada -->
+<div class="flex items-center gap-3.5 group">
+<div class="w-12 h-12 rounded-full badge-icon-border flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
+<i class="fa-solid fa-shield-halved text-brand-gold text-lg"></i>
+</div>
+<div>
+<h4 class="text-xs font-extrabold uppercase text-white tracking-wide group-hover:text-brand-gold transition-colors">
+              Seguridad
+            </h4>
+<p class="text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              Avanzada (JWT)
+            </p>
+</div>
+</div>
+<!-- Benefit Item 2: Catálogo Dinámico -->
+<div class="flex items-center gap-3.5 group">
+<div class="w-12 h-12 rounded-full badge-icon-border flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
+<i class="fa-solid fa-cubes-stacked text-brand-gold text-lg"></i>
+</div>
+<div>
+<h4 class="text-xs font-extrabold uppercase text-white tracking-wide group-hover:text-brand-gold transition-colors">
+              Catálogo
+            </h4>
+<p class="text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              Dinámico en Línea
+            </p>
+</div>
+</div>
+<!-- Benefit Item 3: Reportes Automatizados -->
+<div class="flex items-center gap-3.5 group">
+<div class="w-12 h-12 rounded-full badge-icon-border flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
+<i class="fa-regular fa-file-pdf text-brand-gold text-lg"></i>
+</div>
+<div>
+<h4 class="text-xs font-extrabold uppercase text-white tracking-wide group-hover:text-brand-gold transition-colors">
+              Reportes
+            </h4>
+<p class="text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              Automatizados (PDF/Excel)
+            </p>
+</div>
+</div>
+<!-- Benefit Item 4: Gestión Eficiente -->
+<div class="flex items-center gap-3.5 group">
+<div class="w-12 h-12 rounded-full badge-icon-border flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
+<i class="fa-solid fa-gears text-brand-gold text-lg"></i>
+</div>
+<div>
+<h4 class="text-xs font-extrabold uppercase text-white tracking-wide group-hover:text-brand-gold transition-colors">
+              Gestión Eficiente
+            </h4>
+<p class="text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              De Pedidos y Maquinaria
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: TrustBenefitsSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-brand-deepblue border-t border-slate-800/80 py-6 text-xs text-slate-400">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Copyright Note matching Image 6 footer -->
+<div class="flex items-center gap-2">
+<span class="font-medium text-slate-400">
+          © 2024 FIRMEZA S.A. Todos los derechos reservados.
+        </span>
+</div>
+<!-- Legal Links -->
+<div class="flex items-center gap-6">
+<a class="hover:text-brand-gold transition-colors" href="#">Términos de Servicio</a>
+<span class="text-slate-600">•</span>
+<a class="hover:text-brand-gold transition-colors" href="#">Privacidad y Protección de Datos</a>
+<span class="text-slate-600">•</span>
+<a class="hover:text-brand-gold transition-colors" href="#">Línea Ética</a>
+</div>
+<!-- Social Icons from image -->
+<div class="flex items-center gap-4 text-slate-300">
+<a aria-label="Facebook" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand-gold hover:text-brand-navy transition-all flex items-center justify-center" href="#">
+<i class="fa-brands fa-facebook-f text-xs"></i>
+</a>
+<a aria-label="Instagram" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand-gold hover:text-brand-navy transition-all flex items-center justify-center" href="#">
+<i class="fa-brands fa-instagram text-xs"></i>
+</a>
+<a aria-label="YouTube" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand-gold hover:text-brand-navy transition-all flex items-center justify-center" href="#">
+<i class="fa-brands fa-youtube text-xs"></i>
+</a>
+<a aria-label="LinkedIn" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand-gold hover:text-brand-navy transition-all flex items-center justify-center" href="#">
+<i class="fa-brands fa-linkedin-in text-xs"></i>
+</a>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="form-interactions">
+    // Toggle password visibility
+    document.addEventListener('DOMContentLoaded', () => {
+      const togglePasswordBtn = document.querySelector('button[aria-label="Mostrar u ocultar contraseña"]');
+      const passwordInput = document.getElementById('corporate-password');
+
+      if (togglePasswordBtn && passwordInput) {
+        togglePasswordBtn.addEventListener('click', () => {
+          const isPassword = passwordInput.getAttribute('type') === 'password';
+          passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+          
+          const icon = togglePasswordBtn.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+          }
+        });
+      }
+
+      // Role selector tabs interaction
+      const roleButtons = document.querySelectorAll('div.grid-cols-2 > button');
+      roleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          roleButtons.forEach(b => {
+            b.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'border', 'border-slate-200/60');
+            b.classList.add('text-slate-600');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'border', 'border-slate-200/60');
+          btn.classList.remove('text-slate-600');
+          btn.setAttribute('aria-pressed', 'true');
+        });
+      });
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>

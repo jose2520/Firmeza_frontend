@@ -1,180 +1,132 @@
-import { Image } from 'expo-image';
-import { SymbolView } from 'expo-symbols';
-import { Platform, Pressable, ScrollView, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, ScrollView, Pressable, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useColorScheme } from 'nativewind';
+import {
+  Search,
+  Package,
+  Truck,
+  Layers,
+  Wrench,
+  ChevronRight,
+  ShieldAlert,
+} from 'lucide-react-native';
+import { BottomTabInset, Spacing } from '@/constants/theme';
 
-import { ExternalLink } from '@/components/external-link';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Collapsible } from '@/components/ui/collapsible';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+const CATEGORIES = [
+  { id: '1', name: 'Materiales Básicos', icon: Layers, count: '48 items' },
+  { id: '2', name: 'Maquinaria Pesada', icon: Truck, count: '16 unidades' },
+  { id: '3', name: 'Acero & Estructura', icon: Package, count: '32 items' },
+  { id: '4', name: 'Ferretería & Equipos', icon: Wrench, count: '95 items' },
+];
 
-export default function TabTwoScreen() {
-  const safeAreaInsets = useSafeAreaInsets();
-  const insets = {
-    ...safeAreaInsets,
-    bottom: safeAreaInsets.bottom + BottomTabInset + Spacing.three,
-  };
-  const theme = useTheme();
+export default function ExploreScreen() {
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === 'dark';
+  const insets = useSafeAreaInsets();
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const contentPlatformStyle = Platform.select({
-    android: {
-      paddingTop: insets.top,
-      paddingLeft: insets.left,
-      paddingRight: insets.right,
-      paddingBottom: insets.bottom,
-    },
-    web: {
-      paddingTop: Spacing.six,
-      paddingBottom: Spacing.four,
-    },
-  });
+  const cardBg = isDark ? '#091522' : '#FFFFFF';
+  const cardBorder = isDark ? '#1E293B' : '#E2E8F0';
+  const textColor = isDark ? '#FFFFFF' : '#091522';
+  const textSubColor = isDark ? '#94A3B8' : '#64748B';
 
   return (
     <ScrollView
-      style={[styles.scrollView, { backgroundColor: theme.background }]}
-      contentInset={insets}
-      contentContainerStyle={[styles.contentContainer, contentPlatformStyle]}>
-      <ThemedView style={styles.container}>
-        <ThemedView style={styles.titleContainer}>
-          <ThemedText type="subtitle">Explore</ThemedText>
-          <ThemedText style={styles.centerText} themeColor="textSecondary">
-            This starter app includes example{'\n'}code to help you get started.
-          </ThemedText>
+      style={{ backgroundColor: isDark ? '#060E18' : '#F8FAFC' }}
+      className="flex-1"
+      contentContainerStyle={{
+        paddingTop: Platform.OS === 'web' ? 100 : Math.max(insets.top, 20) + 12,
+        paddingBottom: BottomTabInset + Spacing.six,
+        paddingHorizontal: 20,
+        maxWidth: 1200,
+        width: '100%',
+        alignSelf: 'center',
+      }}
+      showsVerticalScrollIndicator={false}>
+      
+      {/* Header */}
+      <View className="mb-6">
+        <Text className="text-brand-gold font-heading font-extrabold text-xs tracking-widest uppercase mb-1">
+          FIRMEZA · CATÁLOGO COMERCIAL
+        </Text>
+        <Text
+          style={{ color: textColor }}
+          className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight">
+          PRODUCTOS & SERVICIOS
+        </Text>
+        <Text style={{ color: textSubColor }} className="font-sans text-xs sm:text-sm mt-1 leading-relaxed">
+          Consulta nuestro stock disponible, cotiza materiales y solicita alquiler de maquinaria en tiempo real.
+        </Text>
+      </View>
 
-          <ExternalLink href="https://docs.expo.dev" asChild>
-            <Pressable style={({ pressed }) => pressed && styles.pressed}>
-              <ThemedView type="backgroundElement" style={styles.linkButton}>
-                <ThemedText type="link">Expo documentation</ThemedText>
-                <SymbolView
-                  tintColor={theme.text}
-                  name={{ ios: 'arrow.up.right.square', android: 'link', web: 'link' }}
-                  size={12}
-                />
-              </ThemedView>
-            </Pressable>
-          </ExternalLink>
-        </ThemedView>
+      {/* Buscador */}
+      <View
+        style={{ backgroundColor: cardBg, borderColor: cardBorder }}
+        className="flex-row items-center border rounded-2xl px-4 py-3 mb-8 shadow-sm">
+        <Search size={18} color="#E5A93C" strokeWidth={2.2} />
+        <TextInput
+          placeholder="Buscar cemento, arena, volqueta, excavadora..."
+          placeholderTextColor={isDark ? '#64748B' : '#94A3B8'}
+          value={searchTerm}
+          onChangeText={setSearchTerm}
+          style={{ color: textColor }}
+          className="flex-1 ml-3 font-sans text-sm outline-none"
+        />
+      </View>
 
-        <ThemedView style={styles.sectionsWrapper}>
-          <Collapsible title="File-based routing">
-            <ThemedText type="small">
-              This app has two screens: <ThemedText type="code">src/app/index.tsx</ThemedText> and{' '}
-              <ThemedText type="code">src/app/explore.tsx</ThemedText>
-            </ThemedText>
-            <ThemedText type="small">
-              The layout file in <ThemedText type="code">src/app/_layout.tsx</ThemedText> sets up
-              the tab navigator.
-            </ThemedText>
-            <ExternalLink href="https://docs.expo.dev/router/introduction">
-              <ThemedText type="linkPrimary">Learn more</ThemedText>
-            </ExternalLink>
-          </Collapsible>
+      {/* Categorías Principales */}
+      <View className="mb-8">
+        <Text
+          style={{ color: textColor }}
+          className="font-heading font-bold text-sm tracking-wider uppercase mb-4">
+          Líneas de Negocio
+        </Text>
+        
+        <View className="flex-row flex-wrap gap-4">
+          {CATEGORIES.map((cat) => {
+            const Icon = cat.icon;
+            return (
+              <Pressable
+                key={cat.id}
+                style={{ backgroundColor: cardBg, borderColor: cardBorder }}
+                className="flex-1 min-w-[140px] p-4 rounded-2xl border shadow-sm active:border-brand-gold">
+                <View className="w-10 h-10 rounded-xl bg-brand-gold/15 items-center justify-center mb-3">
+                  <Icon size={20} color="#E5A93C" strokeWidth={2.2} />
+                </View>
+                <Text
+                  style={{ color: textColor }}
+                  className="font-heading font-bold text-xs uppercase leading-tight">
+                  {cat.name}
+                </Text>
+                <Text style={{ color: textSubColor }} className="font-sans text-[11px] mt-1">
+                  {cat.count}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      </View>
 
-          <Collapsible title="Android, iOS, and web support">
-            <ThemedView type="backgroundElement" style={styles.collapsibleContent}>
-              <ThemedText type="small">
-                You can open this project on Android, iOS, and the web. To open the web version,
-                press <ThemedText type="smallBold">w</ThemedText> in the terminal running this
-                project.
-              </ThemedText>
-              <Image
-                source={require('@/assets/images/tutorial-web.png')}
-                style={styles.imageTutorial}
-              />
-            </ThemedView>
-          </Collapsible>
+      {/* Banner Informativo de Conexión a la API */}
+      <View
+        style={{ backgroundColor: isDark ? '#0B1726' : '#EFF6FF', borderColor: isDark ? '#1E293B' : '#BFDBFE' }}
+        className="p-5 rounded-2xl border flex-row items-start gap-3.5 shadow-sm">
+        <View className="w-8 h-8 rounded-full bg-brand-gold/20 items-center justify-center shrink-0 mt-0.5">
+          <ShieldAlert size={16} color="#E5A93C" strokeWidth={2.5} />
+        </View>
+        <View className="flex-1">
+          <Text
+            style={{ color: textColor }}
+            className="font-heading font-bold text-xs tracking-wider uppercase">
+            Módulo en Sincronización
+          </Text>
+          <Text style={{ color: textSubColor }} className="font-sans text-xs mt-1 leading-relaxed">
+            El catálogo interactivo se está integrando directamente con la API de Firmeza (.NET 10). Próximamente podrás filtrar por disponibilidad, precios con IVA y agregar al carrito.
+          </Text>
+        </View>
+      </View>
 
-          <Collapsible title="Images">
-            <ThemedText type="small">
-              For static images, you can use the <ThemedText type="code">@2x</ThemedText> and{' '}
-              <ThemedText type="code">@3x</ThemedText> suffixes to provide files for different
-              screen densities.
-            </ThemedText>
-            <Image source={require('@/assets/images/react-logo.png')} style={styles.imageReact} />
-            <ExternalLink href="https://reactnative.dev/docs/images">
-              <ThemedText type="linkPrimary">Learn more</ThemedText>
-            </ExternalLink>
-          </Collapsible>
-
-          <Collapsible title="Light and dark mode components">
-            <ThemedText type="small">
-              This template has light and dark mode support. The{' '}
-              <ThemedText type="code">useColorScheme()</ThemedText> hook lets you inspect what the
-              user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-            </ThemedText>
-            <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-              <ThemedText type="linkPrimary">Learn more</ThemedText>
-            </ExternalLink>
-          </Collapsible>
-
-          <Collapsible title="Animations">
-            <ThemedText type="small">
-              This template includes an example of an animated component. The{' '}
-              <ThemedText type="code">src/components/ui/collapsible.tsx</ThemedText> component uses
-              the powerful <ThemedText type="code">react-native-reanimated</ThemedText> library to
-              animate opening this hint.
-            </ThemedText>
-          </Collapsible>
-        </ThemedView>
-        {Platform.OS === 'web' && <WebBadge />}
-      </ThemedView>
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  contentContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  container: {
-    maxWidth: MaxContentWidth,
-    flexGrow: 1,
-  },
-  titleContainer: {
-    gap: Spacing.three,
-    alignItems: 'center',
-    paddingHorizontal: Spacing.four,
-    paddingVertical: Spacing.six,
-  },
-  centerText: {
-    textAlign: 'center',
-  },
-  pressed: {
-    opacity: 0.7,
-  },
-  linkButton: {
-    flexDirection: 'row',
-    paddingHorizontal: Spacing.four,
-    paddingVertical: Spacing.two,
-    borderRadius: Spacing.five,
-    justifyContent: 'center',
-    gap: Spacing.one,
-    alignItems: 'center',
-  },
-  sectionsWrapper: {
-    gap: Spacing.five,
-    paddingHorizontal: Spacing.four,
-    paddingTop: Spacing.three,
-  },
-  collapsibleContent: {
-    alignItems: 'center',
-  },
-  imageTutorial: {
-    width: '100%',
-    aspectRatio: 296 / 171,
-    borderRadius: Spacing.three,
-    marginTop: Spacing.two,
-  },
-  imageReact: {
-    width: 100,
-    height: 100,
-    alignSelf: 'center',
-  },
-});

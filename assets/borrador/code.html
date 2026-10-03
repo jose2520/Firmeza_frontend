@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIRMEZA - Tu Socio en Construcción</title>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Montserrat & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#E5A93C',
+              'gold-hover': '#cf952e',
+              'gold-light': '#FDF3E7',
+              navy: '#091522',
+              'navy-light': '#102235',
+              'navy-dark': '#060E18',
+              slate: '#1E293B',
+              gray: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom CSS for Geometric Accents & Layout Tweaks -->
+<style data-purpose="custom-styling">
+    .clip-gold-ribbon {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 88% 100%);
+    }
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(8, 17, 28, 0.94) 0%, rgba(8, 17, 28, 0.82) 42%, rgba(8, 17, 28, 0.25) 75%, rgba(8, 17, 28, 0.05) 100%);
+    }
+  </style>
+</head>
+<body class="font-sans bg-[#F4F6F9] text-gray-800 antialiased overflow-x-hidden">
+<!-- BEGIN: Header Navigation -->
+<header class="w-full bg-white shadow-sm sticky top-0 z-50 transition-all duration-300" data-purpose="main-navigation">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3.5 group" href="#">
+<!-- Stylized Wings/Crane Logo Emblem -->
+<div class="relative w-11 h-11 flex items-center justify-center">
+<svg class="w-full h-full fill-current" preserveaspectratio="xMidYMid meet" viewbox="0 0 100 100">
+<!-- Golden Top Wing/Sweep -->
+<path d="M12 28 C 30 18, 70 12, 90 32 C 65 30, 35 38, 26 52 C 20 42, 15 34, 12 28 Z" fill="#D99B26"></path>
+<!-- Dark Navy Curved Body -->
+<path d="M26 48 C 36 38, 62 34, 76 42 C 55 46, 38 60, 36 82 C 30 82, 26 70, 26 48 Z" fill="#091522"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-heading font-black text-2xl tracking-tight text-[#091522] leading-none">FIRMEZA</span>
+<span class="text-[9.5px] font-bold tracking-[0.2em] text-[#091522]/80 uppercase mt-1">TU SOCIO EN CONSTRUCCIÓN</span>
+</div>
+</a>
+<!-- Desktop Nav Items -->
+<nav class="hidden lg:flex items-center space-x-9 text-sm font-semibold text-[#1E293B]">
+<!-- Active Link with Gold Underline -->
+<a class="text-brand-gold relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-8 after:h-[2.5px] after:bg-brand-gold after:rounded-full" href="#inicio">Inicio</a>
+<a class="hover:text-brand-gold transition-colors duration-200" href="#soluciones">Nuestras Soluciones</a>
+<a class="hover:text-brand-gold transition-colors duration-200" href="#vehiculos">Vehículos</a>
+<a class="hover:text-brand-gold transition-colors duration-200" href="#materiales">Materiales</a>
+<a class="hover:text-brand-gold transition-colors duration-200" href="#nosotros">Nosotros</a>
+<a class="hover:text-brand-gold transition-colors duration-200" href="#contacto">Contacto</a>
+</nav>
+<!-- Customer Portal Button -->
+<div class="flex items-center">
+<a class="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#091522] hover:bg-brand-navy-light text-white text-xs font-bold tracking-wider uppercase border border-slate-700/60 shadow-sm transition-all duration-200 hover:shadow group" href="#portal">
+<i class="w-4 h-4 text-brand-gold group-hover:scale-110 transition-transform" data-lucide="user"></i>
+<span>PORTAL DE CLIENTES</span>
+<i class="w-3.5 h-3.5 text-gray-400 group-hover:translate-x-0.5 transition-transform" data-lucide="chevron-right"></i>
+</a>
+</div>
+</div>
+</header>
+<!-- END: Header Navigation -->
+<!-- BEGIN: Hero Section -->
+<section class="relative min-h-[640px] lg:min-h-[720px] bg-[#091522] flex items-center overflow-hidden" data-purpose="hero-banner" id="inicio">
+<!-- Hero Background Image (Heavy Machinery & Construction at Sunrise/Dusk) -->
+<div class="absolute inset-0 z-0">
+<img alt="Construcción con maquinaria pesada, excavadora y camión volquete" class="w-full h-full object-cover object-center scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXjCeeweU4KaTgAt2h1MlaJ3C18NEvNHW32rS3mitIaRD4iyOMAB9atg5frs06wz1NLNpY5dyHMKzq6K3R-FzWmwbskC4-by5LSuOjB0Jnha50xq3kKca3QDnu7bV7-gcFDJhAZ-MX8sP6lsSeXTsui7L7tFS_OU541p2NYRfov3kbHrEXk3ZJTXps8W21QUe5HAVtAiEYOzhpse1qVBlKy7zRi86NXIZwSCmWhTSOvKhB2i8Xw7EA"/>
+<!-- Atmospheric Gradients: Darker on the left for crisp typography readability -->
+<div class="absolute inset-0 hero-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#091522] via-transparent to-transparent opacity-80"></div>
+</div>
+<!-- Right Side Dynamic Construction Decors -->
+<div class="absolute right-0 top-0 bottom-0 w-1/4 pointer-events-none hidden xl:block opacity-40">
+<div class="w-full h-full bg-gradient-to-l from-brand-gold/20 to-transparent"></div>
+</div>
+<!-- Main Content Container -->
+<div class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full pt-16 pb-36 lg:pt-20 lg:pb-44">
+<div class="max-w-2xl text-white">
+<!-- Small Gold Prefix Tag -->
+<span class="inline-block font-heading font-extrabold text-brand-gold text-lg lg:text-xl tracking-wider uppercase mb-1">
+          FIRMEZA:
+        </span>
+<!-- Main Impact Headline -->
+<h1 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.12] tracking-tight uppercase mb-5">
+          TU SOCIO CONFIABLE EN MATERIALES Y VEHÍCULOS DE CONSTRUCCIÓN.
+        </h1>
+<!-- Subheading Paragraph -->
+<p class="text-sm sm:text-base md:text-[17px] text-gray-200/90 font-normal leading-relaxed mb-8 max-w-xl">
+          Optimizamos tus proyectos con nuestra plataforma líder en gestión de inventario, alquiler de maquinaria y distribución eficiente.
+        </p>
+<!-- CTA Action Buttons -->
+<div class="flex flex-wrap items-center gap-4 sm:gap-5">
+<!-- Primary CTA Button (Explore Catalog) -->
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-[#091522] font-heading font-bold text-xs sm:text-sm tracking-wide uppercase shadow-lg shadow-brand-gold/20 transition-all duration-200 hover:-translate-y-0.5" href="#catalogo">
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="book-open"></i>
+<span>EXPLORAR CATÁLOGO</span>
+<i class="w-4 h-4 stroke-[3]" data-lucide="chevron-right"></i>
+</a>
+<!-- Secondary CTA Button (Request Quote) -->
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#091522]/80 hover:bg-[#091522] text-white border border-gray-400/50 hover:border-white font-heading font-bold text-xs sm:text-sm tracking-wide uppercase backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5" href="#cotizacion">
+<i class="w-4 h-4 stroke-[2]" data-lucide="file-text"></i>
+<span>SOLICITAR COTIZACIÓN</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Floating Service Cards Section -->
+<section class="relative z-20 -mt-24 sm:-mt-28 lg:-mt-32 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12" data-purpose="services-grid">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Venta de Materiales -->
+<div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+<div>
+<!-- Thumbnail Image -->
+<div class="h-44 w-full overflow-hidden bg-slate-100 relative">
+<img alt="Sacos de cemento y grava de construcción" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuUAixY_c1dBEKzvfv6PUlY3DtFLjeWsDON_dJADQrz9eP0-SSL0h41bYCtW3dUf7Nt7tC94ddeXvZwiDIY5-faSvhnXmWIE5ohfg7R82goeJL6jesz-a-S0sVh1Uy-IeoB1whTkIt4sMSI_IiCGodCpdATsv_iMtKyYCDRSnlj1fvcDomIyeXByONEiXfmLpbnFq4oLWjeEh9pQ2X8Fglcgy-v_cOU2E-JlZ96wmLjCNM7TeoGf8w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+</div>
+<!-- Body Text -->
+<div class="p-5 sm:p-6 pb-2">
+<div class="flex items-center gap-2.5 mb-2.5">
+<i class="w-5 h-5 text-brand-navy" data-lucide="layers"></i>
+<h3 class="font-heading font-black text-sm tracking-wide text-[#091522] uppercase">VENTA DE MATERIALES</h3>
+</div>
+<p class="text-xs text-gray-500 leading-relaxed">
+              Agregado de arena / cemento, materiales, agregas rendimiento y asistencia eficiente.
+            </p>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="px-5 sm:px-6 pb-5 flex justify-end">
+<a aria-label="Ver Venta de Materiales" class="w-8 h-8 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-[#091522] flex items-center justify-center shadow-md transition-transform group-hover:scale-110" href="#">
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Card 2: Alquiler de Vehículos -->
+<div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+<div>
+<!-- Thumbnail Image -->
+<div class="h-44 w-full overflow-hidden bg-slate-100 relative">
+<img alt="Camión volquete moderno para transporte pesado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ59XBii8R8q-sawaH5m-iLduivHHcmyHhlMKqo2WoQBlbYYZoqHnijtNbNOWjhZLhBNutusp9syKjzUNtG9-qWgv2w4hq0sJMfqz9mssNrZLQciu8ZM-0Cb4vSC_8EA_KWiu_ZrkuZae6M8A-RpXp5yYgm13M56EqAHg-bNjBzq-rwpMaDw9NnNAsHsEAbjURLH_ijkcB_OfgPR6Iq2UiCP5FZEtTXgb6jPTh0gELV1WIhvJj0_au"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+</div>
+<!-- Body Text -->
+<div class="p-5 sm:p-6 pb-2">
+<div class="flex items-center gap-2.5 mb-2.5">
+<i class="w-5 h-5 text-brand-navy" data-lucide="truck"></i>
+<h3 class="font-heading font-black text-sm tracking-wide text-[#091522] uppercase">ALQUILER DE VEHÍCULOS</h3>
+</div>
+<p class="text-xs text-gray-500 leading-relaxed">
+              Alquileres heavy duty, flotas de vehículos, amplia gama de maquinaria para construcción y proyectos viales.
+            </p>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="px-5 sm:px-6 pb-5 flex justify-end">
+<a aria-label="Ver Alquiler de Vehículos" class="w-8 h-8 rounded-full bg-[#091522] hover:bg-brand-gold text-white hover:text-[#091522] flex items-center justify-center shadow-md transition-all group-hover:scale-110" href="#">
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Card 3: Plataforma Digital Moderna -->
+<div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+<div>
+<!-- Thumbnail Image -->
+<div class="h-44 w-full overflow-hidden bg-slate-900 relative flex items-center justify-center p-3">
+<img alt="Tablet con gráficos y plataforma analítica de gestión digital" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500 rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQnV7JSrqWQJfmEdJjWIjCUI3fG5S08hte3GZsl-jncP9oUgYyhRkjacdyaV_iwigGRNCHnzYvpXGd_pgxf9tt-WkUFbKDFmzDXLMhmJqehBbpUecAiEQCSkNmo1Y00vQaPEHhRvufrzcYWVUufkrCpyZFyosKiE94Ws1UoejHYMTN5zOyJeHixgj1aQaPwGFjOVOPTtJTbhOCJwfWcWYgfPKQ92QQbbY98pV0GkfUptNhYs4jc8XQ"/>
+<!-- Badge Overlay Emulating Security & PDF Export -->
+<div class="absolute inset-0 flex items-center justify-center gap-3 bg-slate-900/40 backdrop-blur-[2px]">
+<div class="w-10 h-10 rounded-full bg-[#091522] border-2 border-brand-gold flex items-center justify-center shadow-lg">
+<i class="w-5 h-5 text-brand-gold" data-lucide="shield-check"></i>
+</div>
+<div class="bg-white/95 rounded px-2 py-1 shadow flex items-center gap-1">
+<i class="w-4 h-4 text-red-500" data-lucide="file-text"></i>
+<span class="text-[10px] font-bold text-slate-800">PDF</span>
+</div>
+</div>
+</div>
+<!-- Body Text -->
+<div class="p-5 sm:p-6 pb-2">
+<div class="flex items-center gap-2.5 mb-2.5">
+<i class="w-5 h-5 text-brand-navy" data-lucide="layout"></i>
+<h3 class="font-heading font-black text-sm tracking-wide text-[#091522] uppercase">PLATAFORMA DIGITAL MODERNA</h3>
+</div>
+<p class="text-xs text-gray-500 leading-relaxed">
+              Clean Architecture, acceso seguro JWT, reportes automáticos en PDF y Excel para un control milimétrico.
+            </p>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="px-5 sm:px-6 pb-5 flex justify-end">
+<a aria-label="Ver Plataforma Digital" class="w-8 h-8 rounded-full bg-[#091522] hover:bg-brand-gold text-white hover:text-[#091522] flex items-center justify-center shadow-md transition-all group-hover:scale-110" href="#">
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Card 4: Soluciones Integrales -->
+<div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+<div>
+<!-- Thumbnail Image -->
+<div class="h-44 w-full overflow-hidden bg-slate-100 relative">
+<img alt="Estructura de edificio en construcción con hormigón" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-5u2oB4ouWAB06hKdLPqnZN9AaV757K3EDKoz62PB-PLKuTytXncfbSUu_cNWH_gwMHao4XjPrgrWwNqkoFN1HIw3UZSruE2tGVXxS-2IAouCbTMgv1QZydepfcX3bMwBfCGGoTIiPBPauspZqhlvhG0F8kkMwZ0O_6IVYxSzYPh1AawYim6ZDaKV5NGFrwcqfwtFms66BvP99CeX3lvx484N934jEQ41YgA-KmreFO5NX543pbTJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+</div>
+<!-- Body Text -->
+<div class="p-5 sm:p-6 pb-2">
+<div class="flex items-center gap-2.5 mb-2.5">
+<i class="w-5 h-5 text-brand-navy" data-lucide="building-2"></i>
+<h3 class="font-heading font-black text-sm tracking-wide text-[#091522] uppercase">SOLUCIONES INTEGRALES</h3>
+</div>
+<p class="text-xs text-gray-500 leading-relaxed">
+              Te acompañamos en cada etapa de tu proyecto con servicio, tecnología y el respaldo de nuestra sólida experiencia.
+            </p>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="px-5 sm:px-6 pb-5 flex justify-end">
+<a aria-label="Ver Soluciones Integrales" class="w-8 h-8 rounded-full bg-[#091522] hover:bg-brand-gold text-white hover:text-[#091522] flex items-center justify-center shadow-md transition-all group-hover:scale-110" href="#">
+<i class="w-4 h-4 stroke-[2.5]" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Floating Service Cards Section -->
+<!-- BEGIN: Beneficios Firmeza Strip -->
+<section class="mt-14 relative" data-purpose="benefits-bar">
+<!-- Central Pill Badge Tag -->
+<div class="relative z-20 flex justify-center -mb-4">
+<div class="bg-white border-2 border-slate-200 text-[#091522] font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase px-8 py-2 rounded-full shadow-md">
+        BENEFICIOS FIRMEZA
+      </div>
+</div>
+<!-- Curved Navy Bar Background Container -->
+<div class="relative bg-gradient-to-r from-[#060E18] via-[#091522] to-[#060E18] text-white pt-12 pb-10 border-t border-slate-800">
+<!-- Side Gold Ribbons / Graphic Accents -->
+<div class="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-brand-gold/15 to-transparent pointer-events-none"></div>
+<div class="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-brand-gold/15 to-transparent pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-center">
+<!-- Benefit 1 -->
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-full border-2 border-brand-gold/80 flex items-center justify-center shrink-0 bg-[#060E18]/60 group-hover:bg-brand-gold/10 group-hover:border-brand-gold transition-colors">
+<i class="w-6 h-6 text-brand-gold" data-lucide="shield"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-xs sm:text-sm tracking-wide text-white leading-tight">
+                SEGURIDAD<br/>AVANZADA (JWT)
+              </p>
+</div>
+</div>
+<!-- Benefit 2 -->
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-full border-2 border-brand-gold/80 flex items-center justify-center shrink-0 bg-[#060E18]/60 group-hover:bg-brand-gold/10 group-hover:border-brand-gold transition-colors">
+<i class="w-6 h-6 text-brand-gold" data-lucide="database"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-xs sm:text-sm tracking-wide text-white leading-tight">
+                CATÁLOGO<br/>DINÁMICO
+              </p>
+</div>
+</div>
+<!-- Benefit 3 -->
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-full border-2 border-brand-gold/80 flex items-center justify-center shrink-0 bg-[#060E18]/60 group-hover:bg-brand-gold/10 group-hover:border-brand-gold transition-colors">
+<i class="w-6 h-6 text-brand-gold" data-lucide="file-check-2"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-xs sm:text-sm tracking-wide text-white leading-tight">
+                REPORTES<br/>AUTOMATIZADOS (PDF/EXCEL)
+              </p>
+</div>
+</div>
+<!-- Benefit 4 -->
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-full border-2 border-brand-gold/80 flex items-center justify-center shrink-0 bg-[#060E18]/60 group-hover:bg-brand-gold/10 group-hover:border-brand-gold transition-colors">
+<i class="w-6 h-6 text-brand-gold" data-lucide="settings"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-xs sm:text-sm tracking-wide text-white leading-tight">
+                GESTIÓN EFICIENTE<br/>DE PEDIDOS
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Beneficios Firmeza Strip -->
+<!-- BEGIN: Footer -->
+<footer class="bg-[#050C14] text-gray-400 py-6 border-t border-slate-900 text-xs" data-purpose="site-footer">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Copyright Notice -->
+<div class="font-medium text-gray-400">
+        © 2023 FIRMEZA S.A. Todos los derechos reservados.
+      </div>
+<!-- Social Media Links -->
+<div class="flex items-center space-x-6 text-gray-300">
+<a aria-label="Facebook" class="hover:text-brand-gold transition-colors" href="#facebook">
+<i class="w-4 h-4" data-lucide="facebook"></i>
+</a>
+<a aria-label="Instagram" class="hover:text-brand-gold transition-colors" href="#instagram">
+<i class="w-4 h-4" data-lucide="instagram"></i>
+</a>
+<a aria-label="YouTube" class="hover:text-brand-gold transition-colors" href="#youtube">
+<i class="w-4 h-4" data-lucide="youtube"></i>
+</a>
+<a aria-label="LinkedIn" class="hover:text-brand-gold transition-colors" href="#linkedin">
+<i class="w-4 h-4" data-lucide="linkedin"></i>
+</a>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- Lucide Icons Activation Script -->
+<script data-purpose="icon-initializer">
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body></html>
